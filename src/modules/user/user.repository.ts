@@ -8,7 +8,7 @@ export class UserRepository {
       const user = await prisma.user.create({ data });
       return new User(
         user.id,
-        user.name,
+        user.name, 
         user.email,
         user.password,
         user.createdAt

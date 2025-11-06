@@ -1,6 +1,11 @@
 generator client {
   provider = "prisma-client-js"
 }
+enum Status {
+  ATIVO
+  INATIVO
+}
+
 
 datasource db {
   provider = "mysql"
@@ -13,4 +18,12 @@ model User {
   password  String
   email     String   @unique
   createdAt DateTime @default(now())
+}
+
+model Category {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  status      Status @default(ATIVO)
+  createAt    DateTime @default(now())
 }
